@@ -277,7 +277,7 @@ extension MapVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-        
+        cell.selectionStyle = .none
         cell.textLabel?.text = searchResults[indexPath.row]
         return cell
 
@@ -288,7 +288,7 @@ extension MapVC: UITableViewDelegate, UITableViewDataSource {
         if SourcesArr2.contains(location) {
             Dataservice.instance.deletedrivers()
             removedriverpin()
-            for item in SourcesArr{
+            for item in SourcesArr {
                 if item.name == location{
                     selectedlocation = SourceLocation(name: item.name, latitude: item.latitude, longitude: item.longitude)
                 }
